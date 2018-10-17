@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 lam = 1.0
 
 np.random.seed(42)
-
 s = (np.random.poisson(lam, 10000) - lam)/np.sqrt(lam) #now it has zero mean like the standard normal distr.
 s1 = (np.random.poisson(lam, 10000) - lam)/np.sqrt(lam)
 s2 = (np.random.poisson(lam, 10000) - lam)/np.sqrt(lam)
@@ -17,7 +16,7 @@ s7 = (np.random.poisson(lam, 10000) - lam)/np.sqrt(lam)
 s8 = (np.random.poisson(lam, 10000) - lam)/np.sqrt(lam)
 s9 = (np.random.poisson(lam, 10000) - lam)/np.sqrt(lam)
 
-final = s*s + s1*s1 #+ s2*s2 + s3*s3 + s4*s4 + s5*s5 + s6*s6 + s7*s7 + s8*s8 + s9*s9
+final = s*s + s1*s1 + s2*s2 + s3*s3 + s4*s4 + s5*s5 + s6*s6 + s7*s7 + s8*s8 + s9*s9
 
 count, bins, ignored = plt.hist(final, 30, normed=True)
 num=2

@@ -18,17 +18,18 @@ def solvr(Y, tau):
 def main():
 	plt.clf()
 	global dx, D, nx
-	nx = 100
+	nx = 4096
 	x = np.linspace(-1.0,1.0,nx)
 	dx = x[1]-x[0]
 	D = 1.0
 	time = 0.0
 	dt_exp = 0.5*dx*dx/D
-	s = 50 #number of substages
-	nu = 0.05 #stability parameter
+	s = 36 #number of substages
+	nu = 0.005 #stability parameter
 	dt_aag = s*dt_exp*( (1.+np.sqrt(nu))**(2.*s)-(1.-np.sqrt(nu))**(2.*s)  )/(2.*np.sqrt(nu)) 
 	dt_aag = dt_aag/( (1.+np.sqrt(nu))**(2.*s)+(1.-np.sqrt(nu))**(2.*s)  )
-	tend = 0.1
+	#tend = 0.1
+	tend = 3.0*dt_aag
 	#initialize temperature
 	T0 = np.sin(2.*np.pi*x)
 	T=T0
